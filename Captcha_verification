@@ -1,0 +1,156 @@
+
+#Captcha Verification
+
+import tkinter as tk
+import random
+from PIL import ImageTk, Image
+from tkinter import messagebox
+
+window = tk.Tk()
+window.title("Text Captcha")
+width = window.winfo_screenwidth()
+height = window.winfo_screenheight()
+window.geometry(f'{width}x{height}')
+window.config(bg = "lightsalmon")
+l = [0, 1, 2, 3]
+answer = random.choice(l)
+image_paths = ['cap1.png', 'cap2.png', 'cap3.png', 'cap5.png']
+img = Image.open(image_paths[answer])
+img = img.resize((300, 300), Image.ANTIALIAS)
+img = ImageTk.PhotoImage(img)
+panel = tk.Label(window, image=img)
+panel.place(relx="0.4", rely="0.0")
+exp = " "
+
+
+def clicked(alphabet):
+    if answer == 0:
+        btn01["text"] = alphabet;
+        if btn01["text"] == "A":
+            tk.messagebox.showinfo("congratulations", "Correct Captcha")
+            window.destroy()
+        else:
+            tk.messagebox.showerror("Oops..!", "InCorrect Captcha,Please Enter Correct Captcha")
+
+
+    elif answer == 1:
+        btn01["text"] = alphabet
+
+        if btn01["text"] == "R":
+            tk.messagebox.showinfo("congratulations", "Correct Captcha")
+            window.destroy()
+        else:
+            tk.messagebox.showerror("Oops..!", "InCorrect Captcha,Please Enter Correct Captcha")
+
+    elif answer == 2:
+        btn01["text"] = alphabet
+
+        if btn01["text"] == "S":
+            tk.messagebox.showinfo("congratulations", "Correct captcha")
+            window.destroy()
+        else:
+            tk.messagebox.showerror("Oops..!", "InCorrect Captcha,Please Enter Correct Captcha")
+
+
+    elif answer == 3:
+
+        btn01["text"] = alphabet
+
+        if btn01["text"] == "K":
+            tk.messagebox.showinfo("congratulations", "Correect captcha")
+            window.destroy()
+        else:
+            tk.messagebox.showerror("Oops..!", "InCorrect Captcha,Please Enter Correct Captcha")
+
+
+# Building Entry Blocks
+btn01 = tk.Button(window, text=" ", bg="white", fg="Black", width=10, height=1, font=('Helvetica', '20'))
+btn01.place(relx="0.45", rely="0.39")
+
+# Building Keyboard
+
+btn1 = tk.Button(window, text="A", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("A"))
+btn1.place(relx=0.20, rely=0.56)
+btn2 = tk.Button(window, text="R", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("R"))
+btn2.place(relx=0.33, rely=0.48)
+btn3 = tk.Button(window, text="B", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("B"))
+btn3.place(relx=0.46, rely=0.64)
+btn4 = tk.Button(window, text="Z", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("Z"))
+btn4.place(relx=0.26, rely=0.64)
+btn5 = tk.Button(window, text="T", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("T"))
+btn5.place(relx=0.38, rely=0.48)
+btn6 = tk.Button(window, text="I", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("I"))
+btn6.place(relx=0.53, rely=0.48)
+btn7 = tk.Button(window, text="C", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("C"))
+btn7.place(relx=0.36, rely=0.64)
+btn8 = tk.Button(window, text="X", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("X"))
+btn8.place(relx=0.31, rely=0.64)
+
+btn9 = tk.Button(window, text="O", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                 command=lambda: clicked("O"))
+btn9.place(relx=0.58, rely=0.48)
+btn10 = tk.Button(window, text="Y", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("Y"))
+btn10.place(relx=0.43, rely=0.48)
+btn11 = tk.Button(window, text="P", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("P"))
+btn11.place(relx=0.63, rely=0.48)
+btn12 = tk.Button(window, text="N", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("N"))
+btn12.place(relx=0.51, rely=0.64)
+btn13 = tk.Button(window, text="D", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("D"))
+btn13.place(relx=0.30, rely=0.56)
+btn14 = tk.Button(window, text="W", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("W"))
+btn14.place(relx=0.23, rely=0.48)
+
+btn15 = tk.Button(window, text="V", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("V"))
+btn15.place(relx=0.41, rely=0.64)
+btn16 = tk.Button(window, text="S", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("S"))
+btn16.place(relx=0.25, rely=0.56)
+btn17 = tk.Button(window, text="L", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("L"))
+btn17.place(relx=0.60, rely=0.56)
+btn18 = tk.Button(window, text="U", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("U"))
+btn18.place(relx=0.48, rely=0.48)
+
+btn19 = tk.Button(window, text="M", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("M"))
+btn19.place(relx=0.56, rely=0.64)
+btn20 = tk.Button(window, text="E", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("E"))
+btn20.place(relx=0.28, rely=0.48)
+
+btn21 = tk.Button(window, text="F", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("F"))
+btn21.place(relx=0.35, rely=0.56)
+btn22 = tk.Button(window, text="G", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("G"))
+btn22.place(relx=0.40, rely=0.56)
+btn23 = tk.Button(window, text="H", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("H"))
+btn23.place(relx=0.45, rely=0.56)
+btn24 = tk.Button(window, text="J", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("J"))
+btn24.place(relx=0.50, rely=0.56)
+btn25 = tk.Button(window, text="K", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("K"))
+btn25.place(relx=0.55, rely=0.56)
+
+btn26 = tk.Button(window, text="Q", bg="Blue", fg="Black", width=3, height=1, font=('Helvetica', '20'),
+                  command=lambda: clicked("Q"))
+btn26.place(relx=0.18, rely=0.48)
+
+window.mainloop()
