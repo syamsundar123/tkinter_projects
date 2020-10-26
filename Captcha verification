@@ -1,0 +1,42 @@
+import random
+from tkinter import *
+import tkinter.messagebox
+
+text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+root = Tk()
+root.title("Captcha Application")
+root.geometry("700x300")
+captcha = StringVar()
+user_input = StringVar()
+def strike(text):
+    result = ''
+    for c in text:
+        result = result + c +'\u0336'
+    return result
+
+def set_captcha():
+    s = random.choices(text)
+    s += random.choices(text)
+    s += random.choices(text)
+    s += random.choices(text)
+    striked_text = strike(s)
+    captcha.set(striked_text)
+
+def check():
+    s = user_input.get()
+    s = strike(s)
+    if captcha.get() == s:
+        tkinter.messagebox.showinfo("Sucess","Correct")
+    elif user_input.get() == "":
+        tkinter.messagebox.showinfo("Sucess", "Invalid info,Please Enter Something.")
+        set_captcha()
+    else:
+        tkinter.messagebox.showerror("Error","Incorrect")
+        set_captcha()
+
+Label(root,textvariable = captcha, font = " Arial 16 bold",relief=GROOVE).pack()
+Entry(root,textvariable=user_input , font=" Arial 10 bold").pack(ipady=10)
+Button(root,text ='Check',command=check, font=" Arial 10 ").pack(ipadx=5)
+
+set_captcha()
+root.mainloop()
